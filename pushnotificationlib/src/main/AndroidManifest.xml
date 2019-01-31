@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.theme.junky.pushnotificationlib">
+
+    <application>
+        <activity android:name=".Redirect"/>
+    </application>
+
+</manifest>
