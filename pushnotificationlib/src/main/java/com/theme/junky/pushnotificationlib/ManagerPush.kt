@@ -25,9 +25,9 @@ class ManagerPush {
             .putString("nameLog",nameLog)
             .build()
         val constraints = Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
-        WorkManager.getInstance().beginUniqueWork("sync_push1", ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker::class.java).setConstraints(constraints).addTag("sync_push1").setInputData(data).setInitialDelay(time1Min, TimeUnit.SECONDS).build()).enqueue()
-        WorkManager.getInstance().beginUniqueWork("sync_push2", ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker2::class.java).setConstraints(constraints).addTag("sync_push2").setInputData(data).setInitialDelay(time2Min, TimeUnit.SECONDS).build()).enqueue()
-        WorkManager.getInstance().beginUniqueWork("sync_push3", ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker3::class.java).setConstraints(constraints).addTag("sync_push3").setInputData(data).setInitialDelay(time3Min, TimeUnit.SECONDS).build()).enqueue()
+        WorkManager.getInstance().beginUniqueWork("sync_push1", ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker::class.java).setConstraints(constraints).addTag("sync_push1").setInputData(data).setInitialDelay(time1Min, TimeUnit.MINUTES).build()).enqueue()
+        WorkManager.getInstance().beginUniqueWork("sync_push2", ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker2::class.java).setConstraints(constraints).addTag("sync_push2").setInputData(data).setInitialDelay(time2Min, TimeUnit.MINUTES).build()).enqueue()
+        WorkManager.getInstance().beginUniqueWork("sync_push3", ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker3::class.java).setConstraints(constraints).addTag("sync_push3").setInputData(data).setInitialDelay(time3Min, TimeUnit.MINUTES).build()).enqueue()
 
     }
 

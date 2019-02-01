@@ -14,6 +14,6 @@ class MainActivity : AppCompatActivity() {
         mButton.setOnClickListener {
             ManagerPush().itIsPushShown(this)
         }
-        ManagerPush().setPushNotification(true,"title","Body",R.mipmap.ic_launcher,5,20,40,"testPush")
+        ManagerPush().setPushNotification(true,"title","Body",R.mipmap.ic_launcher,1,2,3,"testPush")
     }
 }

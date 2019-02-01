@@ -29,6 +29,6 @@ class MyWorker2(var nContext: Context, nWorkerParameters: WorkerParameters) : Wo
                 }
             }
         }
-        return Result.SUCCESS
+        return Result.success()
     }
 }

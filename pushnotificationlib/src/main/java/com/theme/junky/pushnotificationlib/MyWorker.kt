@@ -27,6 +27,6 @@ class MyWorker(var nContext: Context, nWorkerParameters: WorkerParameters) : Wor
                 PushNotification().sendNotification(nContext, isSilent, icon, title, body)
             }
         }
-        return Result.SUCCESS
+        return Result.success()
     }
 }

@@ -30,6 +30,6 @@ class MyWorker3(var nContext: Context, nWorkerParameters: WorkerParameters) : Wo
 
             }
         }
-        return Result.SUCCESS
+        return Result.success()
     }
 }
