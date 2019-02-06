@@ -37,11 +37,11 @@ class ManagerPush {
             .build()
         val constraints = Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
         if (time3Sec > 0) {
-            WorkManager.getInstance().beginUniqueWork("sync_push1",ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker2::class.java).setConstraints(constraints).addTag("sync_push1").setInputData(data).setInitialDelay(time1Sec, TimeUnit.SECONDS).build()).enqueue()
+            WorkManager.getInstance().beginUniqueWork("sync_push1",ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker::class.java).setConstraints(constraints).addTag("sync_push1").setInputData(data).setInitialDelay(time1Sec, TimeUnit.SECONDS).build()).enqueue()
             WorkManager.getInstance().beginUniqueWork("sync_push2",ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker2::class.java).setConstraints(constraints).addTag("sync_push2").setInputData(data).setInitialDelay(time2Sec, TimeUnit.SECONDS).build()).enqueue()
-            WorkManager.getInstance().beginUniqueWork("sync_push3",ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker2::class.java).setConstraints(constraints).addTag("sync_push3").setInputData(data).setInitialDelay(time3Sec, TimeUnit.SECONDS).build()).enqueue()
+            WorkManager.getInstance().beginUniqueWork("sync_push3",ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker3::class.java).setConstraints(constraints).addTag("sync_push3").setInputData(data).setInitialDelay(time3Sec, TimeUnit.SECONDS).build()).enqueue()
         } else if (time3Sec == 0L) {
-            WorkManager.getInstance().beginUniqueWork("sync_push1",ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker2::class.java).setConstraints(constraints).addTag("sync_push1").setInputData(data).setInitialDelay(time1Sec, TimeUnit.SECONDS).build()).enqueue()
+            WorkManager.getInstance().beginUniqueWork("sync_push1",ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker::class.java).setConstraints(constraints).addTag("sync_push1").setInputData(data).setInitialDelay(time1Sec, TimeUnit.SECONDS).build()).enqueue()
             WorkManager.getInstance().beginUniqueWork("sync_push2",ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker2::class.java).setConstraints(constraints).addTag("sync_push2").setInputData(data).setInitialDelay(time2Sec, TimeUnit.SECONDS).build()).enqueue()
         }
     }
@@ -84,6 +84,13 @@ class ManagerPush {
             WorkManager.getInstance().beginUniqueWork("sync_push1",ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker2::class.java).setConstraints(constraints).addTag("sync_push1").setInputData(data).setInitialDelay(time1Sec, TimeUnit.SECONDS).build()).enqueue()
             WorkManager.getInstance().beginUniqueWork("sync_push2",ExistingWorkPolicy.KEEP,OneTimeWorkRequest.Builder(MyWorker2::class.java).setConstraints(constraints).addTag("sync_push2").setInputData(data).setInitialDelay(time2Sec, TimeUnit.SECONDS).build()).enqueue()
         }
+    }
+
+    fun closePush(mActivity: Activity){
+        var prefs: SharedPreferences =  mActivity.getSharedPreferences("my_app", Context.MODE_PRIVATE)
+        val editor = prefs.edit()
+        editor.putBoolean("worker_complete",true)
+        editor.apply()
     }
 
 }

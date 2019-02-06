@@ -21,4 +21,6 @@ class Redirect : AppCompatActivity() {
         editor.putBoolean("worker_complete",true)
         editor.apply()
     }
+
+
 }
