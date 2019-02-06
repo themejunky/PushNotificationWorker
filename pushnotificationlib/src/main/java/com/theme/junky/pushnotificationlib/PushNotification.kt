@@ -12,8 +12,10 @@ class PushNotification {
     lateinit var prefs: SharedPreferences
      fun sendNotification(nContext: Context, isSilent: Boolean, icon: Int, title:String, body:String) {
          prefs = nContext.getSharedPreferences("my_app", Context.MODE_PRIVATE)
-         onNotificationTapIntent =Intent.getIntent(prefs.getString(nContext.getString(R.string.pref_key_tapOnIntent),""))
-        val notificationManager = nContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+         onNotificationTapIntent = Intent.getIntent(prefs.getString(nContext.getString(R.string.pref_key_tapOnIntent),""))
+        // onNotificationTapIntent.putExtra("isFromPush",true)
+         (onNotificationTapIntent as Intent).putExtra("isFromPush",true)
+         val notificationManager = nContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val notificationId = 1
         val channelId = "channel-01"
         val channelName = "Channel Name1"
@@ -44,6 +46,7 @@ class PushNotification {
              Log.d("Asfdasd","este null")
              val stackBuilder = TaskStackBuilder.create(nContext)
              val mRedirect = Intent(nContext.applicationContext, Redirect::class.java)
+
              mRedirect.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or
                      Intent.FLAG_ACTIVITY_CLEAR_TASK or
                      Intent.FLAG_ACTIVITY_NEW_TASK
