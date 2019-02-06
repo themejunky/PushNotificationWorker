@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PushNotificationLib</string>
+    <string name="pref_key_tapOnIntent">tapOnIntent</string>
+    <string name="intent_key_notification" translatable="false">notification</string>
 </resources>

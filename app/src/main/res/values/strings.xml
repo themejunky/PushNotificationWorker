@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PushNotificationWithWorker</string>
+    <string name="pref_key_tapOnIntent">tapOnIntent</string>
 </resources>

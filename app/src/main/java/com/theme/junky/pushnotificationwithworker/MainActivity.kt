@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         mButton.setOnClickListener {
             ManagerPush().itIsPushShown(this)
         }
-        ManagerPush().setPushNotification(true,"title","Body",R.mipmap.ic_launcher,10,20,0,"testPush")
+       // ManagerPush().setPushNotificationDefault(this,true,"title","Body",R.mipmap.ic_launcher,10,20,0,"testPush")
+        ManagerPush().setPushNotificationWithClass(this,true,"title","Body",R.mipmap.ic_launcher,10,20,0,"testPush",Main2Activity::class.java)
     }
 }
